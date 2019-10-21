@@ -33,7 +33,9 @@ std
 # F(1)
 0
 # F(2)
-(1/6 + 1/6*5/6 + 1/6 * 4/6 + 1/6 *3/6)
+1-(1+2+3+4+5)/36
+1/6+(5+4+3+2+1)/36
+(5+4+3+2+1+6)
 # F(6)
 1-1/6^6
 # F(7)
@@ -81,7 +83,7 @@ Ez
 # fz(z) = 2/(z/10+1)^2
 
 # Aufgabe 5
-p = 1-(4/5)^10-1/5*(4/5)^9*9
+p = 1-(4/5)^10-1/5*(4/5)^9*10
 p
 p/(1-(4/5)^10)
 
@@ -105,6 +107,7 @@ data ("trees")
 head(trees)
 x = trees$Height
 x2 = round(x,-1)
+table(x2)
 
 fib <- function(num,a,b){
   if(missing(a)){
@@ -118,7 +121,7 @@ fib <- function(num,a,b){
   }
   return(a+b)
 }
-fib(5)
+fib(20)
 setwd(".")
 t = seq(0,2*pi,0.01)
 x = sin(2*t)
