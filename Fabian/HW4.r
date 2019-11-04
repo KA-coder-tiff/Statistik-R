@@ -17,10 +17,10 @@ pbinom(460,n,p) - pbinom(439,n,p)
 
 # b)
 E = n*p
-Var = n*n*p*(1-p)
-meanvar = Var/n
-meanstd = sqrt(meanvar)
-pnorm(460,E,meanstd)- pnorm(439,E,meanstd)
+Var = p*(1-p)
+sumvar = Var * n
+sumstd = sqrt(sumvar)
+pnorm(460,E,sumstd)- pnorm(439,E,sumstd)
 # Bei 600 tries sind wir schon recht gut angenaehert
 # Die Wahrscheinlichkeit wuerde sich minimal aendern, da man quasi von 460,5 bis 439,5 integriert
 
@@ -28,10 +28,11 @@ pnorm(460,E,meanstd)- pnorm(439,E,meanstd)
 
 # AUFGABE 3
 # a)
-ppois(62,50) - ppois(53,50)
+ppois(60,50) - ppois(53,50)
 # b)
-pnorm(62,50,50) - pnorm(53,50,50)
-# beschissen weil nur 1 Versuch
+pnorm(60.5,50,sqrt(50)) - pnorm(53.5,50,sqrt(50))
+# erstaunlich gut dafür, dass es nur 1 Versuch ist
+# pois ist schon ursprünglich recht normal verteilt
 
 
 
