@@ -28,9 +28,9 @@ pnorm(460,E,sumstd)- pnorm(439,E,sumstd)
 
 # AUFGABE 3
 # a)
-ppois(60,50) - ppois(53,50)
+ppois(62,50) - ppois(53,50)
 # b)
-pnorm(60.5,50,sqrt(50)) - pnorm(53.5,50,sqrt(50))
+pnorm(62.5,50,sqrt(50)) - pnorm(53.5,50,sqrt(50))
 # erstaunlich gut dafür, dass es nur 1 Versuch ist
 # pois ist schon ursprünglich recht normal verteilt
 
