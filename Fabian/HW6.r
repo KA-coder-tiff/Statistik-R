@@ -39,7 +39,7 @@ z
 # a) ja, definition
 # b) nicht unbedingt
 # c) ja, mit halb so kritische, lehnen wir es auch ab
-# d) max
+# d) zweiseitig unbekannt, linksseitig max, rechtsseitig min
 # e) wtf
 # f) nicht wirklich, wir können nur sagen, dass es unwahrscheinlich ist,
 #    dass so eine Stichprobe (wie die Daten) aus so einer Verteilung gezogen werden
@@ -48,6 +48,13 @@ z
 
 
 # AUFGABE 4
+# a)
+# Die Whs, dass die alternative Hypotese richtig und die Null-Hypothese falsch
+# Oder die Whs links von q_alpha unter der H_A (bei linksseitigem Test)
+# pnorm(qnorm(alpha,mu_0,sigma/sqrt(n)),mu,sig/sqrt(n))
+# pnorm(q, mu, sig/sqrt(n)) | q = q_alpha * sig/sqrt(n) + mu_0 
+
+# P(x<(q-mu)*sqrt(n)/sig,0,1) = P(x<(q_alpha+(mu_0-mu)*sqrt(n)/sig))
 
 
 
@@ -64,15 +71,36 @@ z
 # AUFGABE 7
 n = 200
 lambda = 0.5
-m = c(1,5,100,1000)
-er = matrix(0,length(m),n)
+m = seq(1,20)
 
+er = seq(1,n)
+temp = rexp(n*max(m),lambda)
+temp = matrix(temp, nrow = n)
+par(mfrow=c(5,4))
 for (i in seq(1,length(m))) {
-  er[i,]= replicate(n,mean(rexp(m[i],lambda)))
+  for (j in seq(1,n)) {
+    er[j] = mean(temp[j,seq(1,m[i])])
+  }
+  hist(er)
+  abline(v=1/lambda, col='red')
 }
+m
+
 boxplot.matrix(er,FALSE)
 
-hist(er[1,])
-hist(er[2,])
-hist(er[3,])
-hist(er[4,])
+
+
+
+
+
+
+er = matrix(0,length(m),n)
+par(mfrow=c(5,2))
+for (i in seq(1,length(m))) {
+  er[i,]= replicate(n,mean(rexp(m[i],lambda)))
+  hist(er[i,])
+}
+m
+
+boxplot.matrix(er,FALSE)
+
