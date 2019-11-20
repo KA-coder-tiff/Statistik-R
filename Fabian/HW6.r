@@ -39,7 +39,7 @@ z
 # a) ja, definition
 # b) nicht unbedingt
 # c) ja, mit halb so kritische, lehnen wir es auch ab
-# d) zweiseitig unbekannt, linksseitig max, rechtsseitig min
+# d) max
 # e) wtf
 # f) nicht wirklich, wir können nur sagen, dass es unwahrscheinlich ist,
 #    dass so eine Stichprobe (wie die Daten) aus so einer Verteilung gezogen werden
@@ -49,7 +49,7 @@ z
 
 # AUFGABE 4
 # a)
-# Die Whs, dass die alternative Hypotese richtig und die Null-Hypothese falsch
+# Die Whs, dass die alternative Hypotese richtig und die Null-Hypothese abgelehnt
 # Oder die Whs links von q_alpha unter der H_A (bei linksseitigem Test)
 # pnorm(qnorm(alpha,mu_0,sigma/sqrt(n)),mu,sig/sqrt(n))
 # pnorm(q, mu, sig/sqrt(n)) | q = q_alpha * sig/sqrt(n) + mu_0 
@@ -81,15 +81,25 @@ for (i in seq(1,length(m))) {
   for (j in seq(1,n)) {
     er[j] = mean(temp[j,seq(1,m[i])])
   }
-  hist(er)
+  hist(er, main = paste(c("m =", m[i]),collapse=" "))
   abline(v=1/lambda, col='red')
 }
 m
 
-boxplot.matrix(er,FALSE)
 
 
-
+er = seq(1,n)
+temp = rexp(n*max(m),lambda)
+temp = matrix(temp, nrow = n)
+plot(1, type="n", xlab="", ylab="", xlim=c(0, length(m)), ylim=c(0, 7))
+for (i in seq(1,length(m))) {
+  for (j in seq(1,n)) {
+    er[j] = mean(temp[j,seq(1,m[i])])
+  }
+  points(rep(i,length(er)),er)
+}
+abline(h=2, col='red')
+m
 
 
 
