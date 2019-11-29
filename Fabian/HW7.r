@@ -41,13 +41,15 @@ hist(smalldist)
 sm = mean(smalldist)
 ssd = sd(smalldist)/sqrt(length(smalldist))
 abline(v=sm, col='red')
-segments(sm-ssd, 5,sm+ssd,5,col='blue')
+abline(v=sm-ssd, col='blue')
+abline(v=sm+ssd, col='blue')
 abline(v=E,col='green')
 hist(distanz)
 m = mean(distanz)
 sd = sd(distanz)/sqrt(length(distanz))
-abline(v=sm, col='red')
-segments(m-sd, 5,m+sd,5,col='blue')
+abline(v=m, col='red')
+abline(v=m-sd, col='blue')
+abline(v=m+sd, col='blue')
 abline(v=E,col='green')
 par(mfrow=c(1,1))
 # d)
@@ -55,10 +57,11 @@ par(mfrow=c(1,1))
 # sogar bis auf die anzahl der vorkommenden Datenpunkte ident.
 # (einfach nur noch 3mal hinzugefuegt)
 # Der Test ist jedoch jetzt deutlich schlechter, da sich
-# die Anzahl der Datenpunkte und somit auch die Standardabweichung
+# die Anzahl der Datenpunkte erhoeht und somit auch die SEM
 # verringert hat. 
 
 # AUFGABE 3
+t = 2.1
 # a)
 # liegt im Ablehnungsbereich [x<1,8,inf]=> verwerfen
 
@@ -131,4 +134,14 @@ hist(m, probability = TRUE)
 x = seq(min(m), max(m), by=0.001)
 lines(x,dnorm(x))
 
+
+coler = c("red", "green", "blue")
+i = 1
+for (n in c(2,5,10)) {
+  m = replicate(10000, (mean(rpois(n,1))-1)/sqrt(1/n))
+  hist(m, probability = TRUE, add = n>2, col=coler[i])
+  i=i+1
+}
+x = seq(min(m), max(m), by=0.001)
+lines(x,dnorm(x))
 
