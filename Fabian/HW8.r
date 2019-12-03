@@ -60,7 +60,7 @@ t.test(x,y,conf.level = 0.99)
 # c) doubled; t = x-y/sqrt(semx^2+semy^2); 
 #            semx = s/sqrt(n)
 
-# d) true
+# d) false
 
 # e) true
 
@@ -76,13 +76,14 @@ t.test(x,y,conf.level = 0.99)
 #semx = 2,8
 
 
-#((10-20)-(7,5))/sqrt(4+2,8^2)
-#= -2,5/3 < 1 
+#((10-20)-(-7,5))/sqrt(4+2,8^2)
+#= |-2,5/3| < 1 
 
 
 
 # AUFGABE 7
 d = seq(-5,5,0.5)
+par(mfrow=c(1,1))
 
 # a)
 n = 10
