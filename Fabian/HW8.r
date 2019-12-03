@@ -83,15 +83,34 @@ t.test(x,y,conf.level = 0.99)
 
 # AUFGABE 7
 d = seq(-5,5,0.5)
-par(mfrow=c(1,1))
+par(mfrow=c(3,1))
 
 # a)
 n = 10
 s = 3
 
+i = 1
+x = c()
+for (d in seq(-5,5,0.5)) {
+  p = replicate(1000, t.test(rnorm(n,0,s), rnorm(n,d,s))$p.value)
+  x[i] = sum(p<=0.05)/1000
+  i=i+1
+}
+plot(seq(-5,5,0.5),x,type = 'l')
+
 # b)
 n = 20
 s = 3
+
+i = 1
+x = c()
+for (d in seq(-5,5,0.5)) {
+  p = replicate(1000, t.test(rnorm(n,0,s), rnorm(n,d,s))$p.value)
+  x[i] = sum(p<=0.05)/1000
+  i=i+1
+}
+plot(seq(-5,5,0.5),x,type = 'l')
+
 
 # c)
 n = 20
