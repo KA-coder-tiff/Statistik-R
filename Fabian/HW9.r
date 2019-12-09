@@ -3,6 +3,8 @@
 # a) degrees of freedom
 df1 = 3-1
 df2 = 4*3-3
+df1
+df2
 
 
 # b) calculate f-Statistic
@@ -24,7 +26,7 @@ f = num/den
 f
 
 # c) give the rejection region
-# R = (7,21,unendl.)
+# R = (8,02,unendl.)
 
 # d) outcome
 # can not reject, as f does not lie in R
@@ -119,3 +121,53 @@ for (i in seq(1, length(temp)-1)) {
 
 # with correction:
 # 1,5    3,5
+
+# AUFGABE 5
+
+# a)
+df1 = 6
+df2 = 240/6
+df2
+
+# b)
+num = 72/6
+num
+denom = 6
+
+# c)
+num/denom
+
+
+# d) 10
+
+# e) (0.9,0.95)
+
+# f) 
+df1+1
+
+# g)
+choose(df1+1,2)
+
+
+
+# AUFGABE 6
+
+# a) true
+# b) true
+# c) true
+# d) true
+# e) true (less than 1%)
+# f) true (Testmacht)
+# g) true
+
+# AUFGAB 7
+c(rnorm(10), rnorm(10,1))
+
+d = c(0, 0.25, 0.5)
+par(mfrow=c(3,1))
+for (t  in d) {
+  p = replicate(10000, t.test(rnorm(20), rnorm(20,t))$p.value)
+  hist(p, probability = TRUE)
+}
+
+
