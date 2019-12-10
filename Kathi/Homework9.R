@@ -74,6 +74,14 @@ for (i in seq(1, length(temp)-1)) {
   }
 }
 
+#(7) Distribution of the P-value in simulations
+c(rnorm(10), rnorm(10,1))
 
+d = c(0, 0.25, 0.5)
+par(mfrow=c(3,1))
+for (t  in d) {
+  p = replicate(10000, t.test(rnorm(20), rnorm(20,t))$p.value)
+  hist(p, probability = TRUE)
+}
 
 
