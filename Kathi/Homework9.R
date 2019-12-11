@@ -15,7 +15,9 @@ anova(aov(x~gr))
 #(2) Processor - Part 1
 #(a)
 load("/Users/Kathi/Desktop/TU/3. Semester/Statistik & Wahrscheinlichkeit/Repo/Statistik-R/temperatures.Rdata")
-stripchart(temp,main="Heating of five different processors (in celsius)", method ="jitter",col=rainbow(5, alpha=0.5), pch=16)
+load("~/_Studium/Sem3/SW/Statistik-R/temperatures.Rdata")
+par(mfrow=c(1,1))
+stripchart(temp,main="Heating of five different processors (in celsius)", method ="jitter",col=rainbow(5, alpha=0.8), pch=16)
 colRain = rainbow(5, v = 0.8)
 #(b)
 for (i in seq(1,5)) {
