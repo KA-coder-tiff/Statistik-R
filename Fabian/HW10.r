@@ -93,3 +93,13 @@ prop.test(matrix(c(x1,x2),2), c(n1,n2))
 
 
 
+
+
+# AUFGABE 6
+
+
+
+
+
+
+
