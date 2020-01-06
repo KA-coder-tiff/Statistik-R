@@ -97,9 +97,28 @@ prop.test(matrix(c(x1,x2),2), c(n1,n2))
 
 # AUFGABE 6
 
+# a) ist binomial-Verteilt 
+p = 2/3
+n = 225
 
+# b) 
 
+A = n-60
 
+# c) 
+rbinom(n,5,2/3)
+
+r = pbinom(A,n,p,lower.tail = FALSE)
+r
+
+# d) <5% => verwerfen
+
+# e) 
+
+H = A/n
+var = H*(1-H)/n
+
+1-pnorm(H,2/3,sqrt(var))
 
 
 
