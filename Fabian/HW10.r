@@ -1,15 +1,15 @@
 # AUFGABE 1
 
 n = 58
-h = 17
+h = 17/n
 p = 0.5
 
-var = p*(1-p)/n
-sd = sqrt(var)
+var = h*(1-h)/n
+se = sqrt(var)
 
-p = 2*pnorm(h/n, p, sd)
-p      # 0.0016
-
+z = (h-p)/se
+p = 2*pnorm(z)
+p      
 
 # eher unwahrscheinlich wen h0 stimmt
 
@@ -21,6 +21,8 @@ p      # 0.0016
 
 # b) 
 sem = sqrt(0.5*0.5/49)  # = 1/14
+z = 0.1/sem
+2*pnorm(z,lower.tail = FALSE)
 lr = 0.5 + (0.36-2)*sem
 lr
 
@@ -28,10 +30,11 @@ lr
 
 # c)
 sem = sqrt(0.5*0.5/144) # = 1/24
-lr = 0.5 + (0.36-2)*sem
+z = 0.1/sem
+lr = 0.5 + (-0.32-2)*sem
 lr 
 
-# => im abhlehnungsbereich (bei 10% also auch bei 3%)
+# => im abhlehnungsbereich (bei 2% also auch bei 3%)
 
 
 
@@ -68,6 +71,8 @@ par(mfrow=c(1,1))
 prop.test(matrix(c(x1,x2),2), c(n1,n2))
 
 
+z = (p1-p2)/sqrt(s1^2+s2^2)
+2*pnorm(z)
 
 
 # AUFGABE 4
@@ -77,13 +82,13 @@ prop.test(matrix(c(x1,x2),2), c(n1,n2))
 #    groesser 3%, das wenn sie von der selben verteilung kommen diese Stichprobe ergeben
 
 # b) nein
-#    ein weg nicht beide; absolut -> relativ,  aber nicht umgekehrt
+#    die stichprobengroesse kann sich unterscheiden
 
-# c) keine Ahnung
+# c) keine Ahnung; wir verwerfen es gar nicht; irgendwo zwischen 1,5% und 98,5%
 
-# d) keine Ahnung
+# d) keine Ahnung; wird nicht verworfen
 
-# e) keine Ahnung
+# e) ja, Konfidenz-Intervall wird groesser
 
 # f) nein
 
