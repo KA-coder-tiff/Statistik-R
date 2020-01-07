@@ -41,7 +41,7 @@ f
 load("~/_Studium/Sem3/SW/Statistik-R/temperatures.Rdata")
 
 # a) stripchart
-
+par(mfrow=c(1,1))
 stripchart(temp, method ="jitter", pch=1)
 
 # b) mean and sem
