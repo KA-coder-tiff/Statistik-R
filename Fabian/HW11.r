@@ -114,3 +114,23 @@ pchisq(x2,d-1,lower.tail = FALSE)
 # h) SEHR unwahrscheinlich, dass es ein fairer Wuerfel ist
 
 chisq.test(x,correct = FALSE)
+
+
+
+
+
+# AUFGABE 7
+
+# a)
+p0 = c(0.2,0.4,0.2,0.2)
+
+# b)
+chisq.test(x,p=p0)
+
+# c) Nein, liegt nicht im Ablehnungsbereich
+
+# d) sehr unwahrscheinlich, dass es ein fairer Wuerfel ist
+
+# e) Die Daten sprechen nicht dagegen. 
+
+      
