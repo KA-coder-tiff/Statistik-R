@@ -11,6 +11,7 @@ z = (h-p)/se
 p = 2*pnorm(z)
 p      
 
+pnorm(h,p*n,sqrt(p*p/n))
 # eher unwahrscheinlich wen h0 stimmt
 
 
@@ -68,7 +69,7 @@ abline(v=(p2-s2)*n2, col="red")
 
 par(mfrow=c(1,1))
 
-prop.test(matrix(c(x1,x2),2), c(n1,n2))
+prop.test(matrix(c(x1,x2),2), correct = FALSE)
 
 
 z = (p1-p2)/sqrt(s1^2+s2^2)
@@ -109,21 +110,23 @@ n = 225
 # b) 
 
 A = n-60
-
+A
 # c) 
-rbinom(n,5,2/3)
 
-r = pbinom(A,n,p,lower.tail = FALSE)
+r = 1-pbinom(A,n,p)
 r
 
-# d) <5% => verwerfen
-
-# e) 
 
 H = A/n
 var = H*(1-H)/n
 
 1-pnorm(H,2/3,sqrt(var))
+
+# d) <5% => verwerfen
+
+# e) 
+
+prop.test(c(A),n, p,correct = FALSE)
 
 
 
