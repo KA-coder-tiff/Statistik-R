@@ -21,6 +21,7 @@ x
 
 # e) multinomial-verteilung mit d Kategorien
 p = c(0.25,p2,0.25,0.125)
+p
 # und d-1 Freiheitsgraden
 
 
@@ -131,6 +132,6 @@ chisq.test(x,p=p0)
 
 # d) sehr unwahrscheinlich, dass es ein fairer Wuerfel ist
 
-# e) Die Daten sprechen nicht dagegen. 
+# e) Die Daten sprechen nicht dagegen. c
 
       
